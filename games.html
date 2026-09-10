@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GayHub - Игры</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                GAME<span>HUB</span>
+            </div>
+
+            <div class="nav-links">
+                <a href="index.html">Главная</a>
+                <a href="games.html" class="active">Игры</a>
+                <a href="about.html">О сайте</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="games-section">
+            <div class="games-header">
+                <p class="small-title">КАТАЛОГ</p>
+                <h1>Каталог <span>Игр</span></h1>
+                <p class="description">
+                    Исследуйте популярные проекты, фильтруйте по жанрам и подбирайте
+                </p>
+
+                <!-- Поиск и фильтры -->
+                 <div class="catalog-controls">
+                    <input type="text" id="game-search" placeholder="Поиск игры..." class="search-input">
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-category="all">Все</button>
+                        <button class="filter-btn" data-category="action">Экшен</button>
+                        <button class="filter-btn" data-category="strategy">Стратегии</button>
+                        <button class="filter-btn" data-category="mobile">Мобильные</button>
+                    </div>
+                </div>
+            </div>
+             
+            <!-- Сетка карточек игр -->
+            <div class="games-grid" id="games-grid">
+
+                <div class="game-card" data-category="action-mobile">
+                    <div class="card-badge">Экшен</div>
+                    <div class="card-cover" style="background-image: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.8)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsYd_7CnuF7givQW9_FBVgrhOxuloGVNoffP4B67H5yQ&s=10');"></div>
+                    <div class="card-body">
+                        <h3>Brawl Stars</h3>
+                        <p>Динамичный 3v3 шутер и королевская битва для мобильных устройств.</p>
+                        <div class="card-footer">
+                            <span class="rating">★ 4.8</span>
+                            <a href="#" class="button secondary card-btn">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-category="strategy mobile">
+                    <div class="card-badge">Стратегия</div>
+                    <div class="card-cover" style="background-image: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.8)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV2mwmMB87zwt78gXILJJigQVWJRyMp9RPjLHw9dNY7w&s=10');"></div>
+                    <div class="card-body">
+                        <h3>Clash Royale</h3>
+                        <p>Стратегия в реальном времени с картами, башнями и сетевыми дуэлями.</p>
+                        <div class="card-footer">
+                            <span class="rating">★ 4.6</span>
+                            <a href="#" class="button secondary card-btn">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="game-card" data-category="action">
+                    <div class="card-badge">Экшен/Танки</div>
+                    <div class="card-cover" style="background-image: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.8)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXNaRzfDY5ysnVlhmB59g5MxdGnbCFAbQzov5NArAHlA&s=10');"></div>
+                    <div class="card-body">
+                        <h3>World of Tanks</h3>
+                        <p>Масштабные командные танковые сражения с техникой середины XX века.</p>
+                        <div class="card-footer">
+                            <span class="rating">★ 4.5</span>
+                            <a href="#" class="button secondary card-btn">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-category="action">
+                    <div class="card-badge">Шутер</div>
+                    <div class="card-cover" style="background-image: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.8)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpBCn0yRmNQeFYWt0KUxLR63Dw18FhSS78tyGfzUFyyw&s=10');"></div>
+                    <div class="card-body">
+                        <h3>Call of Duty</h3>
+                        <p>Легендарная серия шутеров от первого лица с динамичным мультиплеером.</p>
+                        <div class="card-footer">
+                            <span class="rating">★ 4.7</span>
+                            <a href="#" class="button secondary card-btn">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+        <!-- Модальное окно для подробной информации об игре -->
+        <div class="modal-overlay" id="game-modal">
+            <div class="modal-content">
+                <button class="modal-close" id="modal-close">&times;</button>
+            
+                <div class="modal-header">
+                    <span class="modal-badge" id="modal-badge">Жанр</span>
+                    <h2 id="modal-title">Название игры</h2>
+                </div>
+            
+                <div class="modal-body">
+                    <p id="modal-desc">Подробное описание игры...</p>
+                    <div class="modal-info">
+                        <div><strong>Рейтинг:</strong> <span id="modal-rating">★ 0.0</span></div>
+                        <div><strong>Платформы:</strong> <span id="modal-platforms">PC / Mobile</span></div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="button" onclick="alert('Запуск игры в разработке!')">Играть сейчас</button>
+                    <button class="button secondary" id="modal-close-btn">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 GameHub</p>
+    </footer>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>

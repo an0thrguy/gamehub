@@ -1,0 +1,673 @@
+/* =========================
+   ОСНОВА
+   ========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: #080808;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================
+   НАВИГАЦИЯ
+   ========================= */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    z-index: 100;
+
+    background: rgba(8, 8, 8, 0.75);
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.navbar {
+    height: 70px;
+
+    max-width: 1200px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 30px;
+}
+
+
+/* Логотип */
+
+.logo {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #ff2b6d;
+}
+
+
+/* Ссылки */
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+}
+
+.nav-links a {
+    position: relative;
+
+    color: #888;
+    text-decoration: none;
+
+    font-size: 15px;
+
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.nav-links a.active {
+    color: white;
+}
+
+
+/* Полоска под активной ссылкой */
+
+.nav-links a.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 100%;
+    height: 2px;
+
+    background: #ff2b6d;
+
+    box-shadow: 0 0 10px #ff2b6d;
+}
+
+
+/* =========================
+   HERO
+   ========================= */
+
+.hero {
+    position: relative;
+
+    min-height: 100vh;
+
+    max-width: 1200px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+
+    padding: 100px 30px 60px;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   ТЕКСТ
+   ========================= */
+
+.hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    width: 55%;
+}
+
+.small-title {
+    color: #ff2b6d;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: clamp(60px, 8vw, 110px);
+
+    line-height: 0.9;
+
+    letter-spacing: -5px;
+
+    margin-bottom: 30px;
+}
+
+h1 span {
+    color: #ff2b6d;
+
+    text-shadow:
+        0 0 20px rgba(255, 43, 109, 0.4);
+}
+
+
+.description {
+    max-width: 500px;
+
+    color: #888;
+
+    font-size: 16px;
+    line-height: 1.7;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================
+   КНОПКИ
+   ========================= */
+
+.buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.button {
+    display: inline-block;
+
+    padding: 14px 25px;
+
+    border-radius: 8px;
+
+    background: #ff2b6d;
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    transition: 0.3s;
+
+    box-shadow:
+        0 0 25px rgba(255, 43, 109, 0.15);
+}
+
+.button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 30px rgba(255, 43, 109, 0.3);
+}
+
+.button.secondary {
+    background: transparent;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    color: #aaa;
+
+    box-shadow: none;
+}
+
+.button.secondary:hover {
+    color: white;
+
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+
+/* =========================
+   СЕРДЦЕ
+   ========================= */
+
+.heart-container {
+    position: absolute;
+
+    right: -100px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 650px;
+    height: 650px;
+
+    z-index: 1;
+
+    opacity: 0.85;
+
+    pointer-events: none;
+}
+
+#heart {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Свечение за сердцем */
+
+.heart-container::before {
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    background: #ff2b6d;
+
+    border-radius: 50%;
+
+    filter: blur(150px);
+
+    opacity: 0.12;
+}
+
+#heart {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 2;
+}
+
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer {
+    position: relative;
+
+    text-align: center;
+
+    padding: 25px;
+
+    color: #444;
+
+    font-size: 12px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+
+/* Адаптация под телефон
+
+@media (max-width: 800px) {
+
+    .navbar {
+        padding: 0 20px;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+    .hero {
+        text-align: center;
+
+        justify-content: center;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+
+    .heart-container {
+        right: 50%;
+        transform: translate(50%, -50%);
+
+        width: 500px;
+        height: 500px;
+
+        opacity: 0.25;
+    }
+
+    h1 {
+        font-size: 70px;
+    }
+}
+
+/* =========================
+   СТРАНИЦА "О САЙТЕ"
+   ========================= */
+
+.about-hero {
+    position: relative;
+    min-height: 100vh;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    padding: 120px 30px 60px;
+    overflow: hidden;
+}
+
+.about-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+    max-width: 900px;
+}
+
+.about-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 25px;
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 43, 109, 0.4);
+    box-shadow: 0 10px 30px rgba(255, 43, 109, 0.1);
+}
+
+.card-icon {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.about-card h3 {
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.about-card p {
+    font-size: 14px;
+    color: #888;
+    line-height: 1.6;
+}
+
+/* =========================
+   СТРАНИЦА "ИГРЫ"
+   ========================= */
+
+.games-section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 120px 30px 60px;
+}
+
+.games-header {
+    margin-bottom: 40px;
+}
+
+/* Поиск и фильтры */
+
+.catalog-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.search-input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    padding: 12px 20px;
+    color: white;
+    font-size: 14px;
+    outline: none;
+    width: 100%;
+    max-width: 300px;
+    transition: 0.3s;
+}
+
+.search-input:focus {
+    border-color: #ff2b6d;
+    box-shadow: 0 0 15px rgba(255, 43, 109, 0.2);
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #888;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    color: white;
+    border-color: #ff2b6d;
+    background: rgba(255, 43, 109, 0.1);
+}
+
+/* Сетка и Карточки игр */
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 25px;
+}
+
+.game-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.game-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 43, 109, 0.4);
+    box-shadow: 0 12px 30px rgba(255, 43, 109, 0.15);
+}
+
+.card-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(8, 8, 8, 0.85);
+    border: 1px solid rgba(255, 43, 109, 0.5);
+    color: #ff2b6d;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 6px;
+    backdrop-filter: blur(5px);
+    z-index: 2;
+}
+
+.card-cover {
+    height: 160px;
+    background-size: cover;
+    background-position: center;
+}
+
+.card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-body h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: white;
+}
+
+.card-body p {
+    font-size: 13px;
+    color: #888;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.rating {
+    color: #ffb703;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.card-btn {
+    padding: 8px 16px;
+    font-size: 12px;
+}
+
+/* МОДАЛЬНОЕ ОКНО */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-content {
+    background: #121212;
+    border: 1px solid rgba(255, 43, 109, 0.3);
+    border-radius: 16px;
+    width: 90%;
+    max-width: 500px;
+    padding: 30px;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(255, 43, 109, 0.2);
+    transform: translateY(20px);
+    transition: transform 0.3 ease;
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0)
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: #888;
+    font-size: 28px;
+    cursor: pointer;
+    transition: 0.2;
+}
+
+.modal-close:hover {
+    color: #ff2b6d;
+}
+
+.modal-badge {
+    color: #ff2b6d;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.modal-header h2 {
+    font-size: 26px;
+    margin: 8px 0 15px;
+}
+
+.modal-body p {
+    color: #aaa;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.modal-info {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+.modal-footer {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
